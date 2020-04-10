@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    课程列表
+    
 
     <!--查询表单-->
     <el-form :inline="true" class="demo-form-inline">
@@ -35,21 +35,21 @@
         </template>
       </el-table-column>
 
-      <el-table-column prop="title" label="课程名称" width="80" />
+      <el-table-column prop="title" label="课程名称" width="200" />
 
-      <el-table-column label="课程状态" width="80">
+      <el-table-column label="课程状态" width="100">
         <template slot-scope="scope">
           {{ scope.row.status==='Normal'?'已发布':'未发布' }}
         </template>
       </el-table-column>
 
-      <el-table-column prop="lessonNum" label="课时数" />
+      <el-table-column prop="lessonNum" label="课时数" width="100" />
 
       <el-table-column prop="gmtCreate" label="添加时间" width="160"/>
 
-      <el-table-column prop="viewCount" label="浏览数量" width="60" />
+      <el-table-column prop="viewCount" label="浏览数量" width="100" />
 
-      <el-table-column label="操作" width="200" align="center">
+      <el-table-column label="操作"  align="center">
         <template slot-scope="scope">
           <router-link :to="'/teacher/edit/'+scope.row.id">
             <el-button type="primary" size="mini" icon="el-icon-edit">编辑课程基本信息</el-button>
