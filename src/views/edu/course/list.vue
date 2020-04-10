@@ -89,8 +89,7 @@ export default {
           limit:10,//每页记录数
           total:0,//总记录数
           courseQuery:{
-            title:'',
-            status:''
+        
           } //条件封装对象
         }
     },
@@ -100,11 +99,13 @@ export default {
     },
     methods:{  //创建具体的方法，调用teacher.js定义的方法
         //讲师列表的方法
-        getList() {
-            course.getListCourse(this.courseQuery)
+        getList(page=1) {
+            this.page=page
+            course.getListCourse(this.page,this.limit, this.courseQuery)
                 .then(response =>{//请求成功
                     //response接口返回的数据
                     this.list = response.data.list
+                    this.total=response.data.total
                 }) 
         },
         resetData() {//清空的方法

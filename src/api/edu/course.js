@@ -46,10 +46,10 @@ export default {
     },
     //TODO 课程列表
     //课程最终发布
-    getListCourse(courseQuery) {
+    getListCourse(current,limit,courseQuery) {
         return request({
-            url: '/eduservice/course',
-            method: 'get',
+            url: `/eduservice/course/getList/${current}/${limit}`,
+            method: 'post',
             data: courseQuery
           })
     }
